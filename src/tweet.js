@@ -35,8 +35,8 @@ app.get('/tweet-scrapping', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server berjalan pada http://localhost:3000');
-});
+// app.listen(3000, () => {
+//   console.log('Server berjalan pada http://localhost:3000');
+// });
 
 module.exports = app
