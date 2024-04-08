@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const compression = require("compression")
+const indexController = require("./index.controller");
 
 //Middleware
 const cache = require('../../config/cache')
@@ -13,5 +14,6 @@ const index = require("./index.controller");
 router.route("/").get(limit(10) ,index.helloIndex); //Set limiter 10 request/minutes
 router.route("/").post(index.helloPost);
 router.route("/test").get(compression(), cache('1 minutes'),index.getData); //Set compression and cache
+router.route("/tweet-scraping").get(indexController.getTweetData);
 
 module.exports = router;

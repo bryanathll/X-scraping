@@ -13,20 +13,20 @@ const isAuthenticated = (req, res, next) => {
   const token = authorization.split(" ")[1] || authorization;
 
   try {
-    // // Uncomment to use Basic verify jwt token
-    // const secret = process.env.JWT_KEY;
-    // const jwtDecode = jwt.verify(token, secret);
+    // Uncomment to use Basic verify jwt token
+    const secret = process.env.JWT_KEY;
+    const jwtDecode = jwt.verify(token, secret);
 
-    // //create user data to use in server, adjust with your data when you create token first time
-    // const user = {
-    //   id: jwtDecode.id,
-    //   email: jwtDecode.email,
-    //   name: jwtDecode.name,
-    //   role: jwtDecode.role,
-    //   token,
-    // };
+    //create user data to use in server, adjust with your data when you create token first time
+    const user = {
+      id: jwtDecode.id,
+      email: jwtDecode.email,
+      name: jwtDecode.name,
+      role: jwtDecode.role,
+      token,
+    };
 
-    // req.user = user; //set data to use in the next
+    req.user = user; //set data to use in the next
 
     console.log("Anjay Authenticate")
     next();
