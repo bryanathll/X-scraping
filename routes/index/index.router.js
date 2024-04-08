@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const compression = require("compression")
-const indexController = require("./index.controller");
 
 //Middleware
 const cache = require('../../config/cache')
