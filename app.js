@@ -14,8 +14,6 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 
-
-
 //Routes
 app.use("/", tweetsRouter)
 app.use("/", isAuthenticated, indexRouter);
