@@ -1,11 +1,9 @@
 const {res200} = require("../../helpers/response") 
-const {scrapingX} = require("../../src/tweet")
-
-
+const tweet = require("../../src/tweet")
 
 const getTweets = (req, res) =>{
     res200("success getting tweets",
-     scrapingX,
+     "data",
      res)
 }
 
