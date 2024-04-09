@@ -5,7 +5,7 @@ const csv = require('csv-parser');
 const app = express();
 
 
-app.get('/tweet-scrapping', (req, res) => {
+const scrapingX = (req, callback) => {
   const search = 'putusan MK';
   const searchKeyword = search;
   const filename = `${searchKeyword.replace(/\s/g, '_')}.csv`;
@@ -18,7 +18,8 @@ app.get('/tweet-scrapping', (req, res) => {
   exec(command, (error, stdout, stderr) => {
     if (error) {
       console.error(`Terjadi kesalahan: ${error}`);
-      return res.status(500).send('Terjadi kesalahan saat menjalankan perintah.');
+      callback(null)
+      return
     }
 
     console.log(`stdout: ${stdout}`);
@@ -30,13 +31,13 @@ app.get('/tweet-scrapping', (req, res) => {
       .pipe(csv())
       .on('data', (data) => tweetsData.push(data))
       .on('end', () => {
-        res.json(tweetsData); 
+        callback(tweetsData); 
       });
   });
-});
+};
 
 // app.listen(3000, () => {
 //   console.log('Server berjalan pada http://localhost:3000');
 // });
 
-module.exports = app
+module.exports = {scrapingX}
