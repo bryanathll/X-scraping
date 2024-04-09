@@ -5,9 +5,9 @@ const csv = require('csv-parser');
 const app = express();
 
 
-const scrapingX = (req, callback) => {
-  const search = 'putusan MK';
-  const searchKeyword = search;
+const scrapingX = (keyword, callback) => {
+  // const search = 'putusan MK';
+  const searchKeyword = keyword;
   const filename = `${searchKeyword.replace(/\s/g, '_')}.csv`;
   const lang = 'id';
   const limit = 100;
