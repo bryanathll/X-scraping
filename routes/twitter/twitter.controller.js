@@ -1,11 +1,11 @@
 const {res200} = require("../../helpers/response") 
-const tweet = require("../../src/tweet")
+const {scrapingX} = require("../../src/tweet")
 
 const getTweets = (req, res) =>{
-    res200("success getting tweets",
-     "data",
-     res)
-}
+     scrapingX(req, (data)=>{
+        res200("success get data", data, res)
+     });
+};
 
 const postTweets = (req, res)=>{
     const {keyword} = req.body
