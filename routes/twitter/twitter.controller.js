@@ -1,13 +1,14 @@
 const {res200} = require("../../helpers/response") 
 const {scrapingX} = require("../../src/tweet")
 
-const getTweets = (req, res) =>{
-     scrapingX(req, (data)=>{
-        res200("success get data", data, res)
-     });
-};
+//use if you fill out the keyword in the hard code
+// const getTweets = (req, res) =>{
+//      scrapingX(req, (data)=>{
+//         res200("success get data", data, res)
+//      });
+// }; 
 
-const postTweets = (req, res)=>{
+const getTweets = (req, res)=>{
    const {keyword} = req.body
     scrapingX(keyword, (data)=>{
         res200("success get data", data, res)
@@ -21,4 +22,4 @@ const postTweets = (req, res)=>{
 //     res200("success get keyword", keyword, res)
 // }
 
-module.exports = {getTweets, postTweets}
+module.exports = {getTweets}
