@@ -7,17 +7,6 @@ const helloIndex = (req, res) => {
   response.res200("Success fetching the API!", null, res)
 };
 
-// const getTweetData = (req, res) => {
-//   tweetScraper.app();
-
-//   response.res200("Success fetching the API!", null, res)
-// };
-
-// exports.getTweetData = (req, res) => {
-//   tweetScraper(req, res);
-// };
-
-
 
 const helloPost = (req, res) => {
   const inputData = req.body;
